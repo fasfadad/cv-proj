@@ -12,7 +12,11 @@ class Register():
                 messagebox.showerror('Error', 'Please select your Location', parent=self.root)
             elif self.hotel_rating_var.get() == 0 and self.location_var.get() != "":
                 messagebox.showerror('Error', 'Please select Hotel Rating', parent=self.root)
-
+            else :
+                return(self.location_var.get(),self.hotel_rating_var.get(),self.price.get(),self.breakfast_var.get(),self.shuttlebus_var.get(),self.spa_var.get())
+                root.destroy()
+                import page2
+                  
     def clearData(self):
             self.location_var.set("")
             self.hotel_rating_var.set(0)
@@ -153,10 +157,10 @@ class Register():
         button_frame.place(x=34,y=250,width=480,height=70)
 
         
-        search_button=Button(button_frame,text='Search',command=self.validation,font=("times new romaan",15,'bold'),width=12,cursor='hand2',bg='green',fg='white')
+        search_button=Button(button_frame,text='Search',command=self.validation,font=("times new roman",15,'bold'),width=12,cursor='hand2',bg='green',fg='white')
         search_button.grid(row=0,column=0,padx=23,pady=13,sticky=W)
 
-        clear_button=Button(button_frame,text='Clear Data',font=("times new romaan",15,'bold'),width=12,cursor='hand2',bg='red',fg='white', command=self.clearData)
+        clear_button=Button(button_frame,text='Clear Data',font=("times new roman",15,'bold'),width=12,cursor='hand2',bg='red',fg='white', command=self.clearData)
         clear_button.grid(row=0,column=2,padx=100,pady=13,sticky=W)
         
 
