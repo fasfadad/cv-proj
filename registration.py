@@ -7,25 +7,27 @@ import re
 
 class Register():
 
+
     def validation(self):
-            if self.location_var.get() == '':
+        if self.location_var.get() == '':
                 messagebox.showerror('Error', 'Please select your Location', parent=self.root)
-            elif self.hotel_rating_var.get() == 0 and self.location_var.get() != "":
+        elif self.hotel_rating_var.get() == 0 and self.location_var.get() != "":
                 messagebox.showerror('Error', 'Please select Hotel Rating', parent=self.root)
+        
 
     def clearData(self):
-            self.location_var.set("")
-            self.hotel_rating_var.set(0)
-            self.price.set(200)
-            self.breakfast_var.set(-1)
-            self.shuttlebus_var.set(-1)
-            self.spa_var.set(-1)
+        self.location_var.set("")
+        self.hotel_rating_var.set(0)
+        self.price.set(200)
+        self.breakfast_var.set(-1)
+        self.shuttlebus_var.set(-1)
+        self.spa_var.set(-1)
 
     def __init__(self,root):
         self.root=root
         self.root.title('Hotel Recommendation Page')
         self.root.geometry('1500x800')
-        
+
 
         #Variables
         self.location_var=StringVar()
@@ -158,8 +160,10 @@ class Register():
 
         clear_button=Button(button_frame,text='Clear Data',font=("times new romaan",15,'bold'),width=12,cursor='hand2',bg='red',fg='white', command=self.clearData)
         clear_button.grid(row=0,column=2,padx=100,pady=13,sticky=W)
-        
 
+        
+        
+       
 if __name__=='__main__':
     root=Tk()
     obj=Register(root)
