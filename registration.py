@@ -8,12 +8,17 @@ import re
 class Register():
 
     def validation(self):
-            # if self.location_var.get() == '':
-            #     messagebox.showerror('Error', 'Please select your Location', parent=self.root)
-            print(self.hotel_rating_var)
-            if self.hotel_rating_var.get() == '':
+            if self.location_var.get() == '':
+                messagebox.showerror('Error', 'Please select your Location', parent=self.root)
+            elif self.hotel_rating_var.get() == 0 and self.location_var.get() != "":
                 messagebox.showerror('Error', 'Please select Hotel Rating', parent=self.root)
-                print(self.hotel_rating_var)
+
+    def clearData(self):
+            self.location_var.set("")
+            self.hotel_rating_var.set(0)
+            self.scale_min.set(200)
+            self.breakfast_var.set('')
+            self.shuttlebus_var.set('')
 
     def __init__(self,root):
         self.root=root
@@ -23,10 +28,18 @@ class Register():
 
         #Variables
         self.location_var=StringVar()
-        self.hotel_rating_var=StringVar()
+        self.hotel_rating_var=IntVar()
         self.breakfast_var=StringVar()
         self.shuttlebus_var=StringVar()
-        
+        self.price =IntVar()
+
+        # initialize variable
+        self.location_var.set("")
+        self.hotel_rating_var.set(0)
+        self.breakfast_var.set("")
+        self.shuttlebus_var.set("")
+        self.price.set(0)
+
         #Images
         self.bg=ImageTk.PhotoImage(file='bg.jpg')
         bg_lbl=Label(self.root,image=self.bg,bd=2,relief=RAISED)
@@ -70,17 +83,16 @@ class Register():
         rating_frame=Frame(main_frame)
         rating_frame.grid(row=2,column=1,columnspan=5,pady=25,sticky=W)
 
-        radio_1 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value='1', text='1', font=('times new roman', 14))
+        radio_1 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value=1, text='1', font=('times new roman', 14))
         radio_1.grid(row=0, column=0, padx=10, pady=0, sticky=W)
-        radio_2 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value='2', text='2', font=('times new roman', 14))
+        radio_2 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value=2, text='2', font=('times new roman', 14))
         radio_2.grid(row=0, column=1, padx=10, pady=0, sticky=W)
-        radio_3 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value='3', text='3', font=('times new roman', 14))
+        radio_3 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value=3, text='3', font=('times new roman', 14))
         radio_3.grid(row=0, column=2, padx=10, pady=0, sticky=W)
-        radio_4 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value='4', text='4', font=('times new roman', 14))
+        radio_4 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value=4, text='4', font=('times new roman', 14))
         radio_4.grid(row=0, column=3, padx=10, pady=0, sticky=W)
-        radio_5 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value='5', text='5', font=('times new roman', 14))
+        radio_5 = Radiobutton(rating_frame, variable=self.hotel_rating_var, value=5, text='5', font=('times new roman', 14))
         radio_5.grid(row=0, column=4, padx=10, pady=0, sticky=W)
-        self.hotel_rating_var.set('none')
         
         
         #Price
@@ -88,7 +100,7 @@ class Register():
         price.grid(row=3,column=0,padx=10,pady=10,sticky=W)
         scale_frame=Frame(main_frame)
         scale_frame.grid(row=3, column=1, padx=10, pady=0, sticky=W)
-        scale_min = Scale(scale_frame, from_=100, to=800, orient=HORIZONTAL, length=350)
+        scale_min = Scale(scale_frame, from_=100, to=800, orient=HORIZONTAL, length=350, variable=self.price)
         scale_min.set(200)
         scale_min.pack(side=LEFT,ipady=8)
 
@@ -105,7 +117,7 @@ class Register():
         breakfast_radio_1.grid(row=0, column=0, padx=10, pady=0, sticky=W)
         breakfast_radio_2 = Radiobutton(breakfast_frame, variable=self.breakfast_var, value='no1', text='No', font=('times new roman', 14))
         breakfast_radio_2.grid(row=0, column=1, padx=10, pady=0, sticky=W)
-        self.breakfast_var.set('none')
+        self.breakfast_var.set('')
 
         #Shuttlebus Service
         shuttle_service=Label(secondary_frame,text='Shuttle Service Availability:',font=('times new roman',14,'bold'))
@@ -118,7 +130,7 @@ class Register():
         shuttle_radio_1.grid(row=0,column=0,padx=10,pady=0,sticky=W)
         shuttle_radio_2=Radiobutton(shuttle_service_frame, variable=self.shuttlebus_var, value='no2',text='No',font=('times new roman',14))
         shuttle_radio_2.grid(row=0,column=1,padx=10,pady=0,sticky=W)
-        self.shuttlebus_var.set('none')
+        self.shuttlebus_var.set('')
 
         
         #Button Frame
@@ -128,7 +140,7 @@ class Register():
         search_button=Button(button_frame,text='Search',command=self.validation,font=("times new romaan",15,'bold'),width=12,cursor='hand2',bg='green',fg='white')
         search_button.grid(row=0,column=0,padx=23,pady=13,sticky=W)
 
-        clear_button=Button(button_frame,text='Clear Data',font=("times new romaan",15,'bold'),width=12,cursor='hand2',bg='red',fg='white')
+        clear_button=Button(button_frame,text='Clear Data',font=("times new romaan",15,'bold'),width=12,cursor='hand2',bg='red',fg='white', command=self.clearData)
         clear_button.grid(row=0,column=2,padx=100,pady=13,sticky=W)
          
         
