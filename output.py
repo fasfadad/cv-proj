@@ -1,4 +1,8 @@
 from tkinter import *
+from tkinter import ttk
+from PIL import Image, ImageTk
+from tkinter import messagebox
+import re
 
 ws = Tk()
 ws.geometry('400x300')
@@ -9,11 +13,11 @@ f = ("Times bold", 14)
  
 def nextPage():
     ws.destroy()
-    import page3
+    import input
 
 def prevPage():
     ws.destroy()
-    import page1
+    import input
 
 Label(
     ws,
