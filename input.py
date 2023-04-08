@@ -7,7 +7,6 @@ import re
 
 class Register():
 
-
     def validation(self):
         if self.location_var.get() == '':
                 messagebox.showerror('Error', 'Please select your Location', parent=self.root)
