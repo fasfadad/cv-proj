@@ -4,6 +4,51 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 import re
 
+def main_screen():
+
+    def switchtoquestion():
+            root.destroy()
+            mainprogram()
+
+    def switchtolist():
+            root.destroy()
+            program()
+    
+    def main_screen(root): 
+
+        global screen
+
+        screen = root
+        screen.geometry("1500x800")
+        screen.configure(bg="#d7dae2")
+        screen.title("Hotel System")
+
+
+        lbltitle = Label(text="Looking for a Hotel?", font=("loma", 50, 'bold'), fg="black",bg="#d7dae2")
+        lbltitle.pack(pady=50)
+        lbltitle = Label(text="You have come to the right place!", font=("loma", 20, 'bold'), fg="black",bg="#d7dae2")
+        lbltitle.pack(pady=10)
+
+        bordercolour = Frame(screen, bg="black", width=700, height=390)
+        bordercolour.pack(pady=0,padx=0)
+
+        mainframe = Frame(bordercolour, bg="white", width=800, height=450)
+        mainframe.pack(padx=5, pady=5)
+
+        logo_img=Image.open('building.png')
+        logo_img=logo_img.resize((800,480),Image.ANTIALIAS)
+        photo_logo=ImageTk.PhotoImage(logo_img)
+        
+        title_lbl=Label(mainframe,image=photo_logo)
+        title_lbl.place(x=0,y=0)
+        
+        Button(mainframe,text="Get Recommendations", font=("loma", 14, 'bold'), cursor='hand2', height="2",width=20,bg="#d7dae2",bd=4,command=switchtoquestion).place(x=50,y=170)
+        Button(mainframe,text="View list of Hotels", font=("loma", 14, 'bold'), cursor='hand2', height="2",width=20,bg="#d7dae2",bd=4,command=switchtolist).place(x=500,y=170)
+        screen.mainloop()
+
+    root = Tk()
+    main_screen(root)
+
 def mainprogram():
 
     def destroyandimport():
@@ -398,4 +443,4 @@ def program():
         47: {"name" : "Hotel 81 Rochor","location" : "Little India","price" : 57,"hotelclass" : 2,"guestreview" : 7.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
         }
 
-mainprogram()
+main_screen()
