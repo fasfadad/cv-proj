@@ -23,6 +23,8 @@ def main_screen():
         screen.configure(bg="#d7dae2")
         screen.title("Hotel System")
 
+        scrollbar=ttk.Scrollbar(screen,orient='vertical')
+        scrollbar.place(relx=1,rely=0,relheight=1,anchor='ne')
 
         lbltitle = Label(text="Looking for a Hotel?", font=("loma", 50, 'bold'), fg="black",bg="#d7dae2")
         lbltitle.pack(pady=50)
@@ -139,7 +141,7 @@ def mainprogram():
             location=Label(main_frame,text='Select Location:',font=('times new roman',14,'bold'))
             location.grid(row=1,column=0,padx=10,pady=10,sticky=W)
 
-            list=['Marina Bay','Orchard Road','Chinatown','Sentosa','Clarke Quay']
+            list=['Marina Bay','Orchard Road','Chinatown','Sentosa','Clarke Quay','Little India','Bugis','Tiong Bahru']
             droplist=OptionMenu(main_frame, self.location_var, *list)
             droplist.config(width=20, font=('times new roman',14), bg='white')
             droplist.grid(row=1,column=1,padx=10,sticky=W)
@@ -442,4 +444,4 @@ def program():
         }
 
 main_screen()
-print (location, price, hotelrating, breakfast, spa, shuttlebus)
+print (location, hotelrating, price, breakfast, shuttlebus, spa)
