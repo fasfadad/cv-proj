@@ -12,8 +12,16 @@ def mainprogram():
             
     class Register():
 
+        def variable(self):
+            self.location_var
+            self.hotel_rating_var
+            self.breakfast_var
+            self.shuttlebus_var
+            self.price
+            self.spa_var
+
         def __str__(self):
-             return self.location_var.get()
+            return self.variable()
         
         def validation(self):
             if self.location_var.get() == '':

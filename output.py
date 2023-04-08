@@ -1,4 +1,8 @@
 from tkinter import *
+from tkinter import ttk
+from PIL import Image, ImageTk
+from tkinter import messagebox
+import re
 
 def program():
     ws = Tk()
@@ -6,6 +10,7 @@ def program():
     ws.title('PythonGuides')
     ws['bg']='#ffbf00'
 
+<<<<<<< HEAD:page2.py
     f = ("Times bold", 14)
     
     def nextPage():
@@ -15,6 +20,17 @@ def program():
     def prevPage():
         ws.destroy()
         import registration
+=======
+f = ("Times bold", 14)
+ 
+def nextPage():
+    ws.destroy()
+    import input
+
+def prevPage():
+    ws.destroy()
+    import input
+>>>>>>> 9b473125ddfc9f00d29b58ca76f219f89f055c66:output.py
 
     Label(
         ws,
