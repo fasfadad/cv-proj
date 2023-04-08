@@ -57,23 +57,24 @@ def mainprogram():
             
     class Register():
 
-        def variable(self):
-            self.location_var
-            self.hotel_rating_var
-            self.breakfast_var
-            self.shuttlebus_var
-            self.price
-            self.spa_var
-
-        def __str__(self):
-            return self.variable()
-        
         def validation(self):
             if self.location_var.get() == '':
                     messagebox.showerror('Error', 'Please select your Location', parent=self.root)
             elif self.hotel_rating_var.get() == 0 and self.location_var.get() != "":
                     messagebox.showerror('Error', 'Please select Hotel Rating', parent=self.root)
             else :
+                global location
+                global hotelrating
+                global price
+                global breakfast
+                global shuttlebus
+                global spa
+                location = self.location_var.get()
+                hotelrating = self.hotel_rating_var.get()
+                price = self.price.get()
+                breakfast = self.breakfast_var.get()
+                shuttlebus = self.shuttlebus_var.get()
+                spa = self.spa_var.get()
                 destroyandimport()
                         
         def clearData(self):
@@ -225,8 +226,6 @@ def mainprogram():
     root=Tk()
     obj=Register(root)
     root.mainloop()
-    m = obj
-    print (m)
 
 def program():
     def destroyandimport():
@@ -443,3 +442,4 @@ def program():
         }
 
 main_screen()
+print (location, price, hotelrating, breakfast, spa, shuttlebus)
