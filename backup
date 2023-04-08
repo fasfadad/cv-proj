@@ -321,7 +321,6 @@ def program():
             self.root.title('Hotel Recommendation Page')
             self.root.geometry('1500x800')
 
-
             #Variables
             self.location_var=StringVar()
             self.hotel_rating_var=IntVar()
