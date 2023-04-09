@@ -129,9 +129,16 @@ def main_screen(root):
         my_canvas.create_window(10, counter, anchor=NW, window=hotel1_frame)
         counter+=300
 
+    back_frame = Frame(screen)
+    back_frame.pack(side=TOP)
+
+    back_button = Button(back_frame, text="Back",font=("times new roman",15,'bold'),width=100,height=2,cursor='hand2',bg='lightgrey',fg='black')
+    back_button.pack(padx=0, pady=0)
+
     
     screen.mainloop()
     
+
 
 root = Tk()
 main_screen(root)
