@@ -5,6 +5,7 @@ from tkinter import messagebox
 import re
 
 def main_screen():
+    
 
     def switchtoquestion():
             root.destroy()
@@ -53,7 +54,72 @@ def main_screen():
 
 def mainprogram():
 
+    hotelmain = {
+    1: {"name" : "Pan Pacific Singapore","location" : "Marina Bay","price" : 282,"hotelclass" : 5,"guestreview" : 8.8,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
+    2: {"name" : "PARKROYAL COLLECTION Marina Bay","location" : "Marina Bay","price" : 320,"hotelclass" : 5,"guestreview" : 8.5,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
+    3: {"name" : "Ritz-Carlton, Millenia Singapore","location" : "Marina Bay","price" : 444,"hotelclass" : 5,"guestreview" : 9.1,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
+    4: {"name" : "The Fullerton Hotel Singapore","location" : "Marina Bay","price" : 333,"hotelclass" : 5,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
+    5: {"name" : "Conrad Centennial Singapore","location" : "Marina Bay","price" : 294,"hotelclass" : 5,"guestreview" : 8.9,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
+    6: {"name" : "Fullerton Bay Hotel Singapore","location" : "Marina Bay","price" : 570,"hotelclass" : 5,"guestreview" : 9.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    7: {"name" : "Goodwood Park Hotel","location" : "Orchard Road","price" : 241,"hotelclass" : 5,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    8: {"name" : "Hilton Singapore Orchard","location" : "Orchard Road","price" : 255,"hotelclass" : 5,"guestreview" : 8.3,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 0},
+    9: {"name" : "Singapore Marriott Tang Plaza Hotel","location" : "Orchard Road","price" : 294,"hotelclass" : 5,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    10: {"name" : "Orchard Hotel Singapore","location" : "Orchard Road","price" : 173,"hotelclass" : 4,"guestreview" : 7.6,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 1},
+    11: {"name" : "York Hotel","location" : "Orchard Road","price" : 167,"hotelclass" : 4,"guestreview" : 7.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    12: {"name" : "Royal Plaza on Scotts Hotel","location" : "Orchard Road","price" : 211,"hotelclass" : 5,"guestreview" : 8.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    13: {"name" : "Furama City Centre Hotel","location" : "Chinatown","price" : 143,"hotelclass" : 4,"guestreview" : 7.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    14: {"name" : "Dorsett Singapore","location" : "Chinatown","price" : 120,"hotelclass" : 4,"guestreview" : 8.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    15: {"name" : "Butternut Tree Hotel","location" : "Chinatown","price" : 60,"hotelclass" : 2,"guestreview" : 7.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    16: {"name" : "The Scarlet Singapore","location" : "Chinatown","price" : 197,"hotelclass" : 4,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    17: {"name" : "Capri by Fraser, China Square","location" : "Chinatown","price" : 201,"hotelclass" : 4,"guestreview" : 8.6,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    18: {"name" : "W Singapore - Sentosa Cove","location" : "Sentosa","price" : 270,"hotelclass" : 5,"guestreview" : 8.6,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
+    19: {"name" : "ONE°15 Marina","location" : "Sentosa","price" : 239,"hotelclass" : 5,"guestreview" : 8.1,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 1},
+    20: {"name" : "Capella Singapore","location" : "Sentosa","price" : 853,"hotelclass" : 5,"guestreview" : 9.0,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
+    21: {"name" : "Resorts World Sentosa - Equarius Villas","location" : "Sentosa","price" : 330,"hotelclass" : 5,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    22: {"name" : "Shangri-La Rasa, Sentosa","location" : "Sentosa","price" : 264,"hotelclass" : 5,"guestreview" : 8.9,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 1},
+    23: {"name" : "Amara Sanctuary Resort Sentosa","location" : "Sentosa","price" : 211,"hotelclass" : 5,"guestreview" : 7.6,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
+    24: {"name" : "Park Regis Singapore","location" : "Clarke Quay","price" : 170,"hotelclass" : 4,"guestreview" : 8.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    25: {"name" : "Holiday Inn Express Clarke Quay","location" : "Clarke Quay","price" : 168,"hotelclass" : 3,"guestreview" : 8.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    26: {"name" : "Paradox Singapore Merchant Court at Clarke Quay","location" : "Clarke Quay","price" : 192,"hotelclass" : 4,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    27: {"name" : "Studio M Hotel","location" : "Clarke Quay","price" : 128,"hotelclass" : 4,"guestreview" : 7.7,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    28: {"name" : "Peninsula Excelsior Hotel","location" : "Clarke Quay","price" : 172,"hotelclass" : 4,"guestreview" : 7.7,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    29: {"name" : "M Social Singapore","location" : "Clarke Quay","price" : 128,"hotelclass" : 4,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    30: {"name" : "D’Hotel Singapore","location" : "Tiong Bahru","price" : 121,"hotelclass" : 4,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    31: {"name" : "New Cape Inn","location" : "Tiong Bahru","price" : 75,"hotelclass" : 3,"guestreview" : 7.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    32: {"name" : "Nostalgia Hotel","location" : "Tiong Bahru","price" : 109,"hotelclass" : 4,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    33: {"name" : "Link Hotel Singapore","location" : "Tiong Bahru","price" : 118,"hotelclass" : 4,"guestreview" : 7.4,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 0},
+    34: {"name" : "Coller Boutique Hostel","location" : "Tiong Bahru","price" : 46,"hotelclass" : 5,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    35: {"name" : "Hotel 81 Osaka","location" : "Tiong Bahru","price" : 159,"hotelclass" : 2,"guestreview" : 7.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    36: {"name" : "Park View Hotel","location" : "Bugis","price" : 88,"hotelclass" : 3,"guestreview" : 7.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    37: {"name" : "Heritage Collection on Seah","location" : "Bugis","price" : 180,"hotelclass" : 3,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    38: {"name" : "InterContinental Singapore","location" : "Bugis","price" : 360,"hotelclass" : 5,"guestreview" : 8.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    39: {"name" : "Hotel Calmo Bugis","location" : "Bugis","price" : 96,"hotelclass" : 3,"guestreview" : 7.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    40: {"name" : "Hotel Nuve Heritage","location" : "Bugis","price" : 164,"hotelclass" : 4,"guestreview" : 8.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    41: {"name" : "Pan Pacific Serviced Suites Beach Road","location" : "Bugis","price" : 313,"hotelclass" : 5,"guestreview" : 8.7,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    42: {"name" : "Wanderlust, The Unlimited Collection by Oakwood","location" : "Little India","price" : 156,"hotelclass" : 4,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    43: {"name" : "The Daulat by Hotel Calmo","location" : "Little India","price" : 92,"hotelclass" : 3,"guestreview" : 7.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    44: {"name" : "The Great Madras","location" : "Little India","price" : 66,"hotelclass" : 4,"guestreview" : 7.4,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
+    45: {"name" : "ST Signature Jalan Besar","location" : "Little India","price" : 88,"hotelclass" : 3,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    46: {"name" : "Hotel 81 Dickson","location" : "Little India","price" : 63,"hotelclass" : 2,"guestreview" : 7.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+    47: {"name" : "Hotel 81 Rochor","location" : "Little India","price" : 57,"hotelclass" : 2,"guestreview" : 7.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
+        }
+
+    def compareresultsandlocation():
+        global results
+        results = []
+        for i in hotelmain :
+            if hotelmain[i]["location"] == location :
+                if hotelmain[i]['hotelclass'] == hotelrating :
+                    if hotelmain[i]["price"] <= price:
+                        if hotelmain[i]["freebreakfast"] == breakfast or -1:
+                            if hotelmain[i]["shuttlebusservice"] == shuttlebus or -1:
+                              if hotelmain[i]["spa"] == spa or -1:
+                                   results.append(hotelmain[i])
+
+        return results
+
     def destroyandimport():
+            compareresultsandlocation()
             root.destroy()
             program()
             
@@ -393,55 +459,11 @@ def program():
     obj=Register(root)
     root.mainloop()
 
-    hotelmain = {
-        1: {"name" : "Pan Pacific Singapore","location" : "Marina Bay","price" : 282,"hotelclass" : 5,"guestreview" : 8.8,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
-        2: {"name" : "PARKROYAL COLLECTION Marina Bay","location" : "Marina Bay","price" : 320,"hotelclass" : 5,"guestreview" : 8.5,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
-        3: {"name" : "Ritz-Carlton, Millenia Singapore","location" : "Marina Bay","price" : 444,"hotelclass" : 5,"guestreview" : 9.1,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
-        4: {"name" : "The Fullerton Hotel Singapore","location" : "Marina Bay","price" : 333,"hotelclass" : 5,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
-        5: {"name" : "Conrad Centennial Singapore","location" : "Marina Bay","price" : 294,"hotelclass" : 5,"guestreview" : 8.9,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 1},
-        6: {"name" : "Fullerton Bay Hotel Singapore","location" : "Marina Bay","price" : 570,"hotelclass" : 5,"guestreview" : 9.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        7: {"name" : "Goodwood Park Hotel","location" : "Orchard Road","price" : 241,"hotelclass" : 5,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        8: {"name" : "Hilton Singapore Orchard","location" : "Orchard Road","price" : 255,"hotelclass" : 5,"guestreview" : 8.3,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 0},
-        9: {"name" : "Singapore Marriott Tang Plaza Hotel","location" : "Orchard Road","price" : 294,"hotelclass" : 5,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        10: {"name" : "Orchard Hotel Singapore","location" : "Orchard Road","price" : 173,"hotelclass" : 4,"guestreview" : 7.6,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 1},
-        11: {"name" : "York Hotel","location" : "Orchard Road","price" : 167,"hotelclass" : 4,"guestreview" : 7.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        12: {"name" : "Royal Plaza on Scotts Hotel","location" : "Orchard Road","price" : 211,"hotelclass" : 5,"guestreview" : 8.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        13: {"name" : "Furama City Centre Hotel","location" : "Chinatown","price" : 143,"hotelclass" : 4,"guestreview" : 7.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        14: {"name" : "Dorsett Singapore","location" : "Chinatown","price" : 120,"hotelclass" : 4,"guestreview" : 8.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        15: {"name" : "Butternut Tree Hotel","location" : "Chinatown","price" : 60,"hotelclass" : 2,"guestreview" : 7.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        16: {"name" : "The Scarlet Singapore","location" : "Chinatown","price" : 197,"hotelclass" : 4,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        17: {"name" : "Capri by Fraser, China Square","location" : "Chinatown","price" : 201,"hotelclass" : 4,"guestreview" : 8.6,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        18: {"name" : "W Singapore - Sentosa Cove","location" : "Sentosa","price" : 270,"hotelclass" : 5,"guestreview" : 8.6,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
-        19: {"name" : "ONE°15 Marina","location" : "Sentosa","price" : 239,"hotelclass" : 5,"guestreview" : 8.1,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 1},
-        20: {"name" : "Capella Singapore","location" : "Sentosa","price" : 853,"hotelclass" : 5,"guestreview" : 9.0,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
-        21: {"name" : "Resorts World Sentosa - Equarius Villas","location" : "Sentosa","price" : 330,"hotelclass" : 5,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        22: {"name" : "Shangri-La Rasa, Sentosa","location" : "Sentosa","price" : 264,"hotelclass" : 5,"guestreview" : 8.9,"shuttlebusservice" : 1,"spa" : 0,"freebreakfast" : 1},
-        23: {"name" : "Amara Sanctuary Resort Sentosa","location" : "Sentosa","price" : 211,"hotelclass" : 5,"guestreview" : 7.6,"shuttlebusservice" : 1,"spa" : 1,"freebreakfast" : 1},
-        24: {"name" : "Park Regis Singapore","location" : "Clarke Quay","price" : 170,"hotelclass" : 4,"guestreview" : 8.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        25: {"name" : "Holiday Inn Express Clarke Quay","location" : "Clarke Quay","price" : 168,"hotelclass" : 3,"guestreview" : 8.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        26: {"name" : "Paradox Singapore Merchant Court at Clarke Quay","location" : "Clarke Quay","price" : 192,"hotelclass" : 4,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        27: {"name" : "Studio M Hotel","location" : "Clarke Quay","price" : 128,"hotelclass" : 4,"guestreview" : 7.7,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        28: {"name" : "Peninsula Excelsior Hotel","location" : "Clarke Quay","price" : 172,"hotelclass" : 4,"guestreview" : 7.7,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        29: {"name" : "M Social Singapore","location" : "Clarke Quay","price" : 128,"hotelclass" : 4,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        30: {"name" : "D’Hotel Singapore","location" : "Tiong Bahru","price" : 121,"hotelclass" : 4,"guestreview" : 8.3,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        31: {"name" : "New Cape Inn","location" : "Tiong Bahru","price" : 75,"hotelclass" : 3,"guestreview" : 7.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        32: {"name" : "Nostalgia Hotel","location" : "Tiong Bahru","price" : 109,"hotelclass" : 4,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        33: {"name" : "Link Hotel Singapore","location" : "Tiong Bahru","price" : 118,"hotelclass" : 4,"guestreview" : 7.4,"shuttlebusservice" : 0,"spa" : 1,"freebreakfast" : 0},
-        34: {"name" : "Coller Boutique Hostel","location" : "Tiong Bahru","price" : 46,"hotelclass" : 5,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        35: {"name" : "Hotel 81 Osaka","location" : "Tiong Bahru","price" : 159,"hotelclass" : 2,"guestreview" : 7.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        36: {"name" : "Park View Hotel","location" : "Bugis","price" : 88,"hotelclass" : 3,"guestreview" : 7.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        37: {"name" : "Heritage Collection on Seah","location" : "Bugis","price" : 180,"hotelclass" : 3,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        38: {"name" : "InterContinental Singapore","location" : "Bugis","price" : 360,"hotelclass" : 5,"guestreview" : 8.8,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        39: {"name" : "Hotel Calmo Bugis","location" : "Bugis","price" : 96,"hotelclass" : 3,"guestreview" : 7.5,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        40: {"name" : "Hotel Nuve Heritage","location" : "Bugis","price" : 164,"hotelclass" : 4,"guestreview" : 8.2,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        41: {"name" : "Pan Pacific Serviced Suites Beach Road","location" : "Bugis","price" : 313,"hotelclass" : 5,"guestreview" : 8.7,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        42: {"name" : "Wanderlust, The Unlimited Collection by Oakwood","location" : "Little India","price" : 156,"hotelclass" : 4,"guestreview" : 9.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        43: {"name" : "The Daulat by Hotel Calmo","location" : "Little India","price" : 92,"hotelclass" : 3,"guestreview" : 7.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        44: {"name" : "The Great Madras","location" : "Little India","price" : 66,"hotelclass" : 4,"guestreview" : 7.4,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 1},
-        45: {"name" : "ST Signature Jalan Besar","location" : "Little India","price" : 88,"hotelclass" : 3,"guestreview" : 8.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        46: {"name" : "Hotel 81 Dickson","location" : "Little India","price" : 63,"hotelclass" : 2,"guestreview" : 7.1,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        47: {"name" : "Hotel 81 Rochor","location" : "Little India","price" : 57,"hotelclass" : 2,"guestreview" : 7.0,"shuttlebusservice" : 0,"spa" : 0,"freebreakfast" : 0},
-        }
 
+
+
+                  
 main_screen()
+
 print (location, hotelrating, price, breakfast, shuttlebus, spa)
+
