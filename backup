@@ -2,7 +2,6 @@ from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter import messagebox
-import re
 
 def main_screen(): #Main screen
 
@@ -23,6 +22,7 @@ def main_screen(): #Main screen
         screen.configure(bg="#d7dae2")
         screen.title("Hotel System")
 
+        #Scrollbar for Hotel list page
         scrollbar=ttk.Scrollbar(screen,orient='vertical')
         scrollbar.place(relx=1,rely=0,relheight=1,anchor='ne')
 
@@ -37,6 +37,7 @@ def main_screen(): #Main screen
         mainframe = Frame(bordercolour, bg="white", width=800, height=450)
         mainframe.pack(padx=5, pady=5)
 
+        #Image for mainscreen
         logo_img=Image.open('building.png')
         logo_img=logo_img.resize((800,480),Image.ANTIALIAS)
         photo_logo=ImageTk.PhotoImage(logo_img)
@@ -44,6 +45,7 @@ def main_screen(): #Main screen
         title_lbl=Label(mainframe,image=photo_logo)
         title_lbl.place(x=0,y=0)
         
+        #Button for mainscreen
         Button(mainframe,text="Get Recommendations", font=("loma", 14, 'bold'), cursor='hand2', height="2",width=20,bg="#d7dae2",bd=4,command=switchtoquestion).place(x=50,y=170)
         Button(mainframe,text="View list of Hotels", font=("loma", 14, 'bold'), cursor='hand2', height="2",width=20,bg="#d7dae2",bd=4,command=switchtolist).place(x=500,y=170)
         screen.mainloop()
@@ -242,7 +244,7 @@ def recsystem(): #Recommendation form
             scale_frame=Frame(main_frame)
             scale_frame.grid(row=3, column=1, padx=10, pady=0, sticky=W)
             scale_min = Scale(scale_frame, from_=100, to=900, orient=HORIZONTAL, length=350, variable=self.price)
-            scale_min.set(200)
+            scale_min.set(600)
             scale_min.pack(side=LEFT,ipady=8)
             
 
