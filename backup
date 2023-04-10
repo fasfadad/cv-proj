@@ -493,6 +493,10 @@ def searchresults():
     
     def destroyandimport():
             root.destroy()
+            main_screen()
+
+    def destroyandimport1():
+            root.destroy()
             recsystem()
             
     def hotel_list_screen(root): 
@@ -571,7 +575,9 @@ def searchresults():
         back_frame = Frame(screen)
         back_frame.pack(side=TOP)
 
-        back_button = Button(back_frame, text="Back",font=("times new roman",15,'bold'),width=500,height=2,command=destroyandimport,cursor='hand2',bg='lightgrey',fg='black')
+        back_button = Button(back_frame, text="Back to Home Screen",font=("times new roman",15,'bold'),width=500,height=1,command=destroyandimport,cursor='hand2',bg='lightgrey',fg='black')
+        back_button.pack(padx=0, pady=0)
+        back_button = Button(back_frame, text="Back to Search Page",font=("times new roman",15,'bold'),width=500,height=1,command=destroyandimport1,cursor='hand2',bg='lightgrey',fg='black')
         back_button.pack(padx=0, pady=0)
         
         screen.mainloop()
